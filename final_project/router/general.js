@@ -68,7 +68,7 @@ public_users.get('/author/:author', async (req, res) => {
                 const filtered =
                     Object.entries(books)
                         .filter(([isbn, details]) => details.author.toLowerCase() === author.toLowerCase())
-                        .map(([isbn, {author, details}]) => ({isbn, ...details}))
+                        .map(([isbn, {author, ...details}]) => ({isbn, ...details}))
                 if (filtered && filtered.length > 0) {
                     resolve(filtered)
                 } else {
